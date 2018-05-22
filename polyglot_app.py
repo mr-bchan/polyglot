@@ -12,7 +12,7 @@ app = Flask(__name__)
 CORS(app)
 
 
-@app.route("/nlp/sentiment",methods=['POST' ])
+@app.route("/nlp/sentiment/",methods=['POST' ])
 def get_sentiment():
     try:
 
