@@ -26,7 +26,7 @@ def get_entities(blob):
                 entities[e.tag].append(' '.join(e))
 
         print('Entities found in Tagalog language:')
-        text = Text(text, hint_language_code='tl')
+        text = Text(blob, hint_language_code='tl')
         print(text.entities)
         for e in text.entities:
             if e not in entities[e.tag]:
