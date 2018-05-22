@@ -38,7 +38,7 @@ def get_sentiment():
     return response
 
 @app.route("/nlp/ner/",methods=['POST' ])
-def get_sentiment():
+def get_entities():
     try:
 
         data = request.get_json()
