@@ -37,5 +37,30 @@ def get_sentiment():
 
     return response
 
+@app.route("/nlp/ner/",methods=['POST' ])
+def get_sentiment():
+    try:
+
+        data = request.get_json()
+        text = data['data']
+
+        print('** /nlp/ner **')
+        print('** Received text **')
+        print(text)
+        print('*********************')
+
+        entities = text_processor.get_entities(text)
+        response = jsonify({'data': entities, 'success': True})
+        response.headers.add('Access-Control-Allow-Origin', '*')
+
+    except Exception as e:
+        print('Error encountered.')
+        print(e)
+
+        response = jsonify({'success': False, 'error': str(e)})
+        response.headers.add('Access-Control-Allow-Origin', '*')
+
+    return response
+
 if __name__ == "__main__":
     app.run(config.HOST,config.PORT)
