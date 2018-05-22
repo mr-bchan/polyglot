@@ -17,13 +17,19 @@ def get_entities(blob):
     try:
         entities = {'I-ORG':[], 'I-PER':[], 'I-LOC':[]}
 
-        text = get_translated_text(blob)
-
-        print('Entities found:')
+        print('Entities found in English language:')
+        text = Text(blob, hint_language_code='en')
         print(text.entities)
-
         for e in text.entities:
-            entities[e.tag].append(' '.join(e))
+            if e not in entities[e.tag]:
+                entities[e.tag].append(' '.join(e))
+
+        print('Entities found in Tagalog language:')
+        text = Text(text, hint_language_code='tl')
+        print(text.entities)
+        for e in text.entities:
+            if e not in entities[e.tag]:
+                entities[e.tag].append(' '.join(e))
 
     except Exception:
         entities = {'I-ORG':[], 'I-PER':[], 'I-LOC':[]}

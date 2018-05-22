@@ -2,7 +2,7 @@ import requests
 import json
 
 myurl = "http://neuralmechanics.ai/analitika/nlp/ner/"
-body = {'data': 'nagpunta si Duterte sa Malaysia'}
+body = {'data': 'President Duterte'}
 
 r = requests.post(myurl, auth=('nmdev', 'nmdev'), verify=True, json=body)
 
