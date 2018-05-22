@@ -22,6 +22,7 @@ def get_entities(blob):
         print(text.entities)
         for e in text.entities:
             if e not in entities[e.tag]:
+                print(e)
                 entities[e.tag].append(' '.join(e))
 
         print('Entities found in Tagalog language:')
@@ -29,8 +30,11 @@ def get_entities(blob):
         print(text.entities)
         for e in text.entities:
             if e not in entities[e.tag]:
+                print(e)
                 entities[e.tag].append(' '.join(e))
 
+        print(entities)
+        
     except Exception:
         entities = {'I-ORG':[], 'I-PER':[], 'I-LOC':[]}
 
