@@ -34,8 +34,9 @@ def get_entities(blob):
                 entities[e.tag].append(' '.join(e))
 
         print(entities)
-        
-    except Exception:
+
+    except Exception as e:
+        print(e)
         entities = {'I-ORG':[], 'I-PER':[], 'I-LOC':[]}
 
     entities = {'entities': entities }
