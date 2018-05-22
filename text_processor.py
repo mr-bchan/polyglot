@@ -15,9 +15,13 @@ def get_sentiment(blob):
 
 def get_entities(blob):
     try:
-        entities = {'I-ORG':[], 'I-PER':[], 'I-LOC':[]}
-        text = get_translated_text(blob)
+        entities = {}
 
+        text = Text(blob, hint_language_code='en')
+
+        print('Entities found:')
+        print(text.entities)
+        
         for e in text.entities:
             entities[e.tag].append(' '.join(e))
 
